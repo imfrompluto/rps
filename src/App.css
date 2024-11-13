@@ -1,0 +1,169 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-image: url('./assets/les.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Afacad Flux", sans-serif;
+}
+
+h1{
+  display: inline-block;
+  text-align: center;
+  background-image: radial-gradient(circle, rgba(189,196,198,1) 0%, rgba(240,157,113,1) 100%);
+  background-clip: text;
+  color: transparent;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  font-size: 60px;
+  font-style: italic;
+  text-shadow: 0 10px 20px rgba(255, 166, 0, 0.5);
+  background-size: 200% 100%;
+  background-position: left;
+  padding: 5px;
+  transition: .5s;
+}
+
+h1:hover {
+  background-position: right;
+  cursor: pointer;
+  transform: translateY(-50%) rotate(-1deg);
+  text-shadow: 0 10px 50px rgba(255, 166, 0, 0.5);
+}
+
+.hands{
+  display: flex;
+  justify-content:space-between ;
+  overflow: hidden;
+}
+
+.hands img{
+  width: 30%;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.hands img:first-child{
+  transform: translateX(-100%);
+}
+
+
+.hands img:last-child{
+  width: 30%;
+  transform: scaleX(-1) translateX(-100%) ;
+}
+
+.hands .handsvisible{
+  transform: translateX(10%) rotate(90deg)!important;
+}
+
+.hands .botvisible{
+  transform: scaleX(-1) translateX(10%) rotate(90deg) !important;
+}
+
+#game{
+  max-width: 800px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 0 0 30px black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  text-align: center;
+  /* overflow-x: hidden;
+  overflow-y: visible; */
+}
+
+.gradient{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 6px;
+  opacity: 0;
+  transition: .3s;
+}
+
+#win{
+  background: linear-gradient(90deg, rgba(78,255,0,0.5858718487394958) 0%, rgba(255,255,255,0) 50%, rgba(255,45,45,0.5970763305322129) 100%);
+  opacity: 1;
+}
+
+#lose{
+  background: linear-gradient(-90deg, rgba(78,255,0,0.5858718487394958) 0%, rgba(255,255,255,0) 50%, rgba(255,45,45,0.5970763305322129) 100%);
+  opacity: 1;
+}
+
+.scoreboard{
+  display: flex;
+  justify-content: space-between;
+}
+
+.scoreboard h3{
+  width: 30%;
+  color: aliceblue;
+}
+
+#countdown{
+  font-size: 60px;
+  color: azure;
+  text-shadow: 0 10px 20px rgba(255, 166, 0, 0.5);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+}
+
+.countdownactive{
+  animation: 1s 3 counter;
+
+}
+
+.buttons button{
+  width: 100px;
+  height: 100px;
+  background: url("assets/rock.svg"), linear-gradient(90deg, rgba(255, 42, 114, 1) 0%, rgba(170, 104, 255, 0.5) 50%, rgba(255, 42, 114, 1) 100%);
+  border-radius: 100px;
+  margin: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 3px solid #ffffff00;
+  transform: translateY(50%);
+}
+
+.buttons button:hover{
+  border: 3px solid #ffffff55;
+  box-shadow: 0 0px 50px rgb(255, 255, 255, 0.3);
+}
+
+#paper{
+  background-image: url('assets/paper.svg'), linear-gradient(90deg, rgba(255, 42, 114, 1) 0%, rgba(170, 104, 255, 0.5) 50%, rgba(255, 42, 114, 1) 100%);
+}
+
+#scissors{
+  background-image: url('assets/scissors.svg'), linear-gradient(90deg, rgba(255, 42, 114, 1) 0%, rgba(170, 104, 255, 0.5) 50%, rgba(255, 42, 114, 1) 100%);
+}
+
+@keyframes counter{
+  0%{
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0;
+  }
+  50%{
+    transform:translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
